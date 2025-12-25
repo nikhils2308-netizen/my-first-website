@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nikhil S | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ------------------ GLOBAL ------------------ */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background:black;
+    color: white;
+}
+
+/* ------------------ NAVBAR ------------------ */
+nav{
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;  /* invisible by default */
+    transition: border-color 0.3s;
+}
+
+nav a:hover {
+    border-bottom: 2px solid red;   /* visible on hover */
+}
+ 
+/* ------------------ HERO ------------------ */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero h1 span{
+    color:red;
+}
+
+.hero h2{
+    margin-top:10px;
+    font-weight:400;
+}
+
+.hero p{
+    max-width:600px;
+    margin-top:20px;
+    line-height:1.6;
+    opacity:0.9;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.hero-buttons a{
+    padding:20px 20px;
+    margin-left:10px;
+    text-decoration:none;
+    border-radius:30px;
+    background:red;
+    color:black;
+    font-weight:bold;
+}
+
+.hero-buttons a.secondary{
+    background:transparent;
+    border:2px solid red;
+    color:white;
+}
+
+/* ------------------ SECTIONS ------------------ */
+section{
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+.container{
+    width:900px;
+    max-width:100%;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2.2rem;
+    color:red;
+}
+
+.container p{
+    margin-bottom:15px;
+    line-height:1.7;
+}
+
+/* ------------------ SKILLS ------------------ */
+.skills-box{
+    background:red;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+/* ------------------ PROJECTS ------------------ */
+.project{
+    background: rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.project a{
+    color:red;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ------------------ CONTACT ------------------ */
+.contact p{
+    text-align:center;
+}
+
+/* ------------------ FOOTER ------------------ */
+footer{
+    text-align:center;
+    padding:20px;
+    background: rgba(0,0,0,0.6);
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <h1>Hi, I'm <span>Nikhil S</span></h1>
+    <h2>Web Development Learner | Engineering Student</h2>
+    <p>
+        I am an aspiring engineer who enjoys building clean, responsive websites.
+        I believe in consistency, self-learning, and improving myself step by step.
+    </p>
+    <div class="hero-buttons">
+        <a href="#projects">My Projects</a>
+        <a href="#contact" class="secondary">Contact Me</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>
+            I am an engineering student with a strong interest in web development and technology.
+            I enjoy learning new concepts and applying them through practical projects.
+        </p>
+        <p>
+            I prefer learning independently and building my skills through consistent practice.
+            Along with technical skills, I am also improving my communication and confidence.
+        </p>
+        <p>
+            Outside academics, I enjoy listening to music, podcasts, and light entertainment,
+            which helps me stay motivated.
+        </p>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="container">
+        <h2>Skills</h2>
+
+        <div class="skills-box">
+            <p><b>Web Development:</b> HTML, CSS, Responsive Design</p>
+        </div>
+
+        <div class="skills-box">
+            <p><b>Programming:</b> Basic JavaScript, Logical Problem Solving</p>
+        </div>
+
+        <div class="skills-box">
+            <p><b>Tools:</b> Visual Studio Code, Git & GitHub (basic)</p>
+        </div>
+
+        <div class="skills-box">
+            <p><b>Soft Skills:</b> Communication, Self-learning, Consistency</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
+        <h2>Projects</h2>
+
+        <div class="project">
+            <p><b>Personal Portfolio Website</b></p>
+            <p>A responsive personal portfolio built using HTML and CSS.</p>
+        </div>
+
+        <div class="project">
+            <p><b>Restaurant / Hotel Menu Website</b></p>
+            <p>Static website created using HTML and CSS.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container contact">
+        <h2>Contact</h2>
+        <p>Email: nikhils2308@email.com</p>
+        <p>Location: Chennai,TamilNadu</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Nikhil S | Built with HTML & CSS</p>
+</footer>
+
+</body>
+</html>
