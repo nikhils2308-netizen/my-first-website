@@ -27,35 +27,27 @@ body{
 nav{
     position: sticky;
     top: 0;
+    z-index: 1000;
     background: rgba(0,0,0,0.6);
-    
     display: flex;
     justify-content: center;
     gap: 30px;
     padding: 15px;
-
 }
 
 nav a{
     color: white;
     text-decoration: none;
     font-weight: bold;
-    position: relative;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
     padding-bottom: 5px;
-    border-bottom: 2px solid transparent;  /* invisible by default */
+    border-bottom: 2px solid transparent;
     transition: border-color 0.3s;
 }
 
-nav a:hover {
-    border-bottom: 2px solid red;   /* visible on hover */
+nav a:hover{
+    border-bottom: 2px solid red;
 }
- 
+
 /* ------------------ HERO ------------------ */
 .hero{
     min-height:100vh;
@@ -92,8 +84,8 @@ nav a:hover {
 }
 
 .hero-buttons a{
-    padding:20px 20px;
-    margin-left:10px;
+    padding:12px 25px;
+    margin:10px;
     text-decoration:none;
     border-radius:30px;
     background:red;
@@ -134,24 +126,43 @@ section h2{
 /* ------------------ SKILLS ------------------ */
 .skills-box{
     background:red;
+    color:white;
     padding:20px;
     border-radius:15px;
     margin-bottom:20px;
+    opacity:0;
+    transform: translateY(20px);
 }
 
 /* ------------------ PROJECTS ------------------ */
 .project{
     background:red;
+    color:white;
     padding:20px;
     border-radius:15px;
     margin-bottom:20px;
+    opacity:0;
+    transform: translateY(20px);
 }
 
-
+.project:hover{
+    transform: scale(1.02);
+    transition: 0.3s;
+}
 
 /* ------------------ CONTACT ------------------ */
 .contact p{
     text-align:center;
+    cursor:pointer;
+}
+
+.contact a{
+    color:red;
+    text-decoration:none;
+}
+
+.contact a:hover{
+    text-decoration:underline;
 }
 
 /* ------------------ FOOTER ------------------ */
@@ -160,6 +171,13 @@ footer{
     padding:20px;
     background: rgba(0,0,0,0.6);
     opacity:0.8;
+}
+
+/* ------------------ MOBILE ------------------ */
+@media (max-width:600px){
+    .hero h1{
+        font-size:2.2rem;
+    }
 }
 </style>
 </head>
@@ -178,9 +196,9 @@ footer{
 <!-- HERO -->
 <section id="home" class="hero">
     <h1>Hi, I'm <span>Nikhil S</span></h1>
-    <h2>Web Development Learner | Engineering Student</h2>
+    <h2>Engineering Student</h2>
     <p>
-        I am an aspiring engineer who enjoys building clean, responsive websites.
+        I am an aspiring engineer who enjoys building clean, responsive projects.
         I believe in consistency, self-learning, and improving myself step by step.
     </p>
     <div class="hero-buttons">
@@ -194,16 +212,16 @@ footer{
     <div class="container">
         <h2>About Me</h2>
         <p>
-            I am an engineering student with a strong interest in web development and technology.
-            I enjoy learning new concepts and applying them through practical projects.
+            I am a B.E. Electronics and Communication Engineering (ECE) student with a strong interest in core electronics, programming, and problem-solving. I enjoy learning concepts deeply and applying them through hands-on projects, coding practice, and circuit analysis.
         </p>
         <p>
-            I prefer learning independently and building my skills through consistent practice.
-            Along with technical skills, I am also improving my communication and confidence.
+            I believe in self-growth and independence, and I am committed to improving my skills day by day without relying on shortcuts. Even when things feel challenging, I stay motivated by learning continuously and pushing myself to do better.
         </p>
         <p>
-            Outside academics, I enjoy listening to music, podcasts, and light entertainment,
-            which helps me stay motivated.
+            I enjoy coding, exploring electronics concepts, learning new tools, and staying consistent with my goals. My long-term aim is to build a stable, respectable career through hard work and discipline.
+        </p>
+        <p>
+
         </p>
     </div>
 </section>
@@ -218,7 +236,7 @@ footer{
         </div>
 
         <div class="skills-box">
-            <p><b>Programming:</b> Basic JavaScript, Logical Problem Solving</p>
+            <p><b>Programming:</b> Basic JavaScript, Logical Problem Solving, C++, Python, Java.</p>
         </div>
 
         <div class="skills-box">
@@ -238,12 +256,16 @@ footer{
 
         <div class="project">
             <p><b>Personal Portfolio Website</b></p>
-            <p>A responsive personal portfolio built using HTML and CSS.</p>
+            <p>A responsive personal portfolio built using HTML, CSS, and JavaScript.</p>
         </div>
 
         <div class="project">
             <p><b>Restaurant / Hotel Menu Website</b></p>
             <p>Static website created using HTML and CSS.</p>
+        </div>
+        <div class="project">
+            <p><b>Designed Calculator</b></p>
+            <p>Created using HTML, CSS, and JavaScript.</p>
         </div>
     </div>
 </section>
@@ -252,14 +274,71 @@ footer{
 <section id="contact">
     <div class="container contact">
         <h2>Contact</h2>
-        <p>Email: nikhils2308@gmail.com</p>
-        <p>Location: Chennai,TamilNadu</p>
+        <p id="email">Email: nikhils2308@gmail.com</p>
+        <p>Location: Chennai, Tamil Nadu</p>
+        <p>
+            GitHub:
+            <a href="https://github.com/" target="_blank">github.com</a>
+        </p>
     </div>
 </section>
 
 <footer>
-    <p>© 2025 Nikhil S | Built with HTML & CSS</p>
+    <p>© 2025 Nikhil S | Built with HTML, CSS & JavaScript</p>
 </footer>
+
+<!-- ------------------ JAVASCRIPT ------------------ -->
+<script>
+/* ACTIVE NAV LINK */
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - sectionHeight / 3) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.style.borderBottom = "2px solid transparent";
+        if (link.getAttribute("href") === "#" + current) {
+            link.style.borderBottom = "2px solid red";
+        }
+    });
+});
+
+/* BUTTON ALERT */
+document.querySelector(".hero-buttons a").addEventListener("click", () => {
+    alert("Scrolling to projects 🚀");
+});
+
+/* COPY EMAIL */
+document.getElementById("email").addEventListener("click", () => {
+    navigator.clipboard.writeText("nikhils2308@gmail.com");
+    alert("Email copied to clipboard 📋");
+});
+
+/* FADE-IN EFFECT */
+const animatedItems = document.querySelectorAll(".skills-box, .project");
+
+window.addEventListener("scroll", () => {
+    animatedItems.forEach(item => {
+        const position = item.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (position < screenHeight - 100) {
+            item.style.opacity = 1;
+            item.style.transform = "translateY(0)";
+            item.style.transition = "0.6s ease";
+        }
+    });
+});
+</script>
 
 </body>
 </html>
